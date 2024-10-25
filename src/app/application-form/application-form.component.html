@@ -1,0 +1,86 @@
+<nav class="navbar">
+    <div class="container">
+      <span class="logo">Neoteric Bank</span>
+      <ul class="nav-links">
+        <li><a routerLink="/home">Home</a></li>
+        <li><a routerLink="/accounts">Accounts</a></li>
+        <li><a routerLink="/payments">Payments</a></li>
+        <li><a routerLink="/investments">Investments</a></li>
+        <li><a routerLink="/loans">Loans</a></li>
+        <li><a routerLink="/help-support">Help/Support</a></li>
+      </ul>
+      <button class="btn btn-outline-primary">Login/Register</button>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h2>Application Form</h2>
+    <form #applicationForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" name="firstName" class="form-control" placeholder=" First Name" [(ngModel)]="user.firstName" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" name="lastName" class="form-control"  placeholder=" Last Name" [(ngModel)]="user.lastName" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="mobileNumber">Mobile Number</label>
+        <input type="text" id="mobileNumber" name="mobileNumber" class="form-control"  placeholder=" Mobile Number" [(ngModel)]="user.mobileNumber" required pattern="^[6-9]\d{9}$" />
+      </div>
+  
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" class="form-control"  placeholder="Email" [(ngModel)]="user.email" required />
+      </div>
+  
+      <div class="form-group">
+        <label>Gender</label>
+        <label><input type="radio" name="gender" [(ngModel)]="user.gender" value="Male" required /> Male</label>
+        <label><input type="radio" name="gender" [(ngModel)]="user.gender" value="Female" required /> Female</label>
+        <label><input type="radio" name="gender" [(ngModel)]="user.gender" value="Other" required /> Other</label>
+      </div>
+  
+      <div class="form-group">
+        <label for="aadhaarNumber">Aadhaar Number</label>
+        <input type="text" id="aadhaarNumber" name="Aadhaar Number" class="form-control"  placeholder=" Aadhaar Number" [(ngModel)]="user.aadhaarNumber" required pattern="^\d{12}$" />
+      </div>
+  
+      <div class="form-group">
+        <label for="panCard">PAN Card</label>
+        <input type="text" id="panCard" name="panCard" class="form-control"  placeholder="Pan Number"
+         [(ngModel)]="user.panCard" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="address">Address</label>
+        <textarea id="address" name="address" class="form-control"   placeholder="Address" [(ngModel)]="user.address" required></textarea>
+      </div>
+  
+      <div class="form-group">
+        <label for="state">State</label>
+        <select id="state" name="state" class="form-control"   placeholder="State" [(ngModel)]="user.state" required>
+          <option *ngFor="let state of states" [value]="state">{{ state }}</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="city">City</label>
+        <input type="text" id="city" name="city" class="form-control" placeholder="city" [(ngModel)]="user.city" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="pincode">Pincode</label>
+        <input type="text" id="pincode" name="pincode" class="form-control" placeholder="Pincode" [(ngModel)]="user.pincode" required pattern="^\d{6}$" />
+      </div>
+  
+      <div class="form-group">
+        <label><input type="checkbox" name="terms" [(ngModel)]="user.terms" required /> I agree to the bank's terms and conditions</label>
+      </div>
+  
+      <button type="submit" (click)="onSubmit()" class="btn btn-primary">submit</button>
+    </form>
+  </div>
+  
