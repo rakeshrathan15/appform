@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ApplicationServiceService } from '../application-service.service';
 
 @Component({
   selector: 'app-application-form',
@@ -23,6 +24,10 @@ export class ApplicationFormComponent {
     pincode: '',
     terms: false,
   };
+
+  constructor(private aplicationService : ApplicationServiceService){
+
+  }
 
   onSubmit() {
     console.log('Form submitted:', this.user);
